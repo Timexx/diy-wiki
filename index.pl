@@ -173,7 +173,7 @@ sub new{
     
     print '</a>';
     print ' Seite wurde erstellt';
-    #print ("javascript:alert('hello')";
+
 }
 
 
