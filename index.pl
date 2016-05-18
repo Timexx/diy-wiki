@@ -1,18 +1,20 @@
-/*
-diy Wiki
-
-by Tim Pollmer - 2016
-
-Code Teile von: #Hilfe von https://wiki.selfhtml.org/wiki/Perl/Module/CGI-Modul
-*/
-
 #!/usr/bin/perl -w
+
+#diy Wiki
+#by Tim Pollmer - 2016
+#Code Teile von: #Hilfe von https://wiki.selfhtml.org/wiki/Perl/Module/CGI-Modul
+
+
+
+
  
 use strict;
 use CGI;
 use CGI::Carp qw(fatalsToBrowser);
  
 my $cgi = new CGI;
+
+#Hilfe von https://wiki.selfhtml.org/wiki/Perl/Module/CGI-Modul
 
 print $cgi->header();
 
