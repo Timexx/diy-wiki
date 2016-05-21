@@ -6,8 +6,6 @@
 
 
 
-
- 
 use strict;
 use CGI;
 use CGI::Carp qw(fatalsToBrowser);
@@ -154,12 +152,17 @@ sub new{
     print NEW '<h1>';
     print NEW $sname;
     print NEW '</h1>';
-    print NEW '<hr>';
-    print NEW '<a href="start.html">Startseite</a>';
-    print NEW '<a href="index.pl">Erstellen</a>';
-    print NEW '<a herf="';
-    print NEW $sname;
-    print NEW '">Neu Laden</a>';
+    
+    #MENÜ erstellen
+    print NEW '<ul class="menu">';
+    print NEW '<li><a href="start.html">Startseite</a></li>';
+    print NEW '<li><a href="index.pl">Erstellen</a></li>';
+    print NEW '<li><a href="';
+    print NEW $name;
+    print NEW '">Neu Laden</a></li>';
+    print NEW '</div></ul>';
+    
+    #Code block einfügen in neuer seite
     print NEW '<br><br><div>';
     print NEW $cgi->param('code');
     close(NEW);
@@ -181,10 +184,9 @@ sub new{
 
 sub delect{
 
-my $result;
-$result = unlink ($cgi->param('delect'));
-print '<class="info">Die Seite wurde gel&oumlscht</class>';
-    
+    my $result;
+    $result = unlink ($cgi->param('delect'));
+    print '<div id="box">Die Seite wurde gel&oumlscht</div>';
 }
 
 
@@ -211,6 +213,15 @@ foreach $filename (<*.html>) {     #soll alle html datein auflisten , ist als me
 
 my $filename;
 foreach $filename (<*.htm>) {     #soll alle html datein auflisten , ist als menü gedacht 
+  print START '<div class="menu"><a href="';
+  print START $filename;
+  print START '">';
+  print START $filename;
+  print START '</a></div><br>';
+}
+
+my $filename;
+foreach $filename (<*.php>) {     #soll alle html datein auflisten , ist als menü gedacht 
   print START '<div class="menu"><a href="';
   print START $filename;
   print START '">';
