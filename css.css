@@ -1,0 +1,107 @@
+@import url(http://fonts.googleapis.com/css?family=Bree+Serif);
+
+h1{
+    color:#0080FF;
+    font-family:sans-serif;
+}
+
+h2{
+    color:#0080FF;
+    font-family:sans-serif;
+}
+
+
+link{
+    background-color: #81BEF7; 
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 6px;
+    font-family:sans-serif;
+}
+
+div{
+     font-family:sans-serif;
+}
+
+p{
+     font-family:sans-serif;
+}
+
+input{
+    border-color:#D8D8D8;
+    border-left-width:0px;
+    border-right-width:0px;
+    border-top-width:0px;
+    background-color:#E6E6E6;
+    font-family:sans-serif;
+}
+
+
+textarea{
+    border-color:#D8D8D8;
+    border-left-width:0px;
+    border-right-width:0px;
+    border-top-width:4px;
+    border-bottom-width:4px;
+    background-color:#E6E6E6;
+    font-family:sans-serif;
+}
+
+
+
+
+
+###### MENÜ ##########
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 60px;
+    background-color: #111
+    
+} 
+
+li a {
+    display: block;
+    background-color: #111
+    
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #111;
+    display: 100%;
+    font-family:sans-serif;
+    
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #2E64FE;
+}
+
+
+li:last-child {
+    border-right: none;
+}
