@@ -1,0 +1,68 @@
+h1{
+    color:#0080FF;
+    font-family:sans-serif;
+}
+
+h2{
+    color:#0080FF;
+    font-family:sans-serif;
+}
+
+
+a{
+    background-color: #81BEF7; 
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 6px;
+    font-family:sans-serif;
+}
+
+div{
+    font-family:sans-serif;
+}
+
+input{
+    border-color:#D8D8D8;
+    border-left-width:0px;
+    border-right-width:0px;
+    border-top-width:0px;
+    background-color:#E6E6E6;
+    font-family:sans-serif;
+}
+
+
+textarea{
+    border-color:#D8D8D8;
+    border-left-width:0px;
+    border-right-width:0px;
+    border-top-width:4px;
+    border-bottom-width:4px;
+    background-color:#E6E6E6;
+    font-family:sans-serif;
+}
+
+textarea:hover{
+    border-color:#6E6E6E;
+    border-left-width:0px;
+    border-right-width:0px;
+    border-top-width:4px;
+    border-bottom-width:4px;
+    background-color:#E6E6E6;
+    font-family:sans-serif;
+}
+
+
+box{
+    color:#555;
+    border-radius:10px;
+    font-family:Tahoma,Geneva,Arial,sans-serif;font-size:11px;
+    padding:10px 10px 10px 36px;
+    margin:10px;
+    background:#ffecec url('images/error.png') no-repeat 10px 50%;
+    border:1px solid #f5aca6;
+}
