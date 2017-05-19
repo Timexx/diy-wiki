@@ -4,47 +4,40 @@
 #by Tim Pollmer - 2016
 #Code Teile von: #Hilfe von https://wiki.selfhtml.org/wiki/Perl/Module/CGI-Modul
 
-
-
 use strict;
 use CGI;
 use CGI::Carp qw(fatalsToBrowser);
  
 my $cgi = new CGI;
 
-#Hilfe von https://wiki.selfhtml.org/wiki/Perl/Module/CGI-Modul
-
 print $cgi->header();
 
-
- 
- 
  
 if ($cgi->param('absenden')) {
-                print $cgi->start_html(-title=>'Vorschau',
-                                    -style=>{'src'=>'control.css'});
-                anzeige($cgi);
-                print $cgi->end_html();
+  print $cgi->start_html(-title=>'Vorschau',
+                      -style=>{'src'=>'control.css'});
+  anzeige($cgi);
+  print $cgi->end_html();
 } else {
-                 print $cgi->start_html(-title=>'SEITE ERSTELLEN',
-                                        -style=>{'src'=>'control.css'});
-                 formular($cgi);
-                 print $cgi->end_html();
-                 
+  print $cgi->start_html(-title=>'SEITE ERSTELLEN',
+                        -style=>{'src'=>'control.css'});
+  formular($cgi);
+  print $cgi->end_html();
+               
 }
 
 if($cgi->param('new')){
-                 print $cgi->start_html(-title=>'NEW',
-                                        -style=>{'src'=>'control.css'});
-                 new($cgi);
-                 print $cgi->end_html(); 
+   print $cgi->start_html(-title=>'NEW',
+                          -style=>{'src'=>'control.css'});
+   new($cgi);
+   print $cgi->end_html(); 
 }
 
 if ($cgi->param('delect')){
-     print $cgi->start_html(-title=>'Loeschen',
-                                        -style=>{'src'=>'control.css'});
-                 delect($cgi);
-                 print $cgi->end_html(); 
+  print $cgi->start_html(-title=>'Loeschen',
+                        -style=>{'src'=>'control.css'});
+  delect($cgi);
+  print $cgi->end_html(); 
 
 }
 
@@ -52,75 +45,73 @@ if ($cgi->param('delect')){
 
 sub formular{
     print $cgi->start_form(),
-                   $cgi->h1('Control Center'),
-                   $cgi->hr,  
-                   $cgi->div('<a href="start.html">&Uumlbersicht</a> <a href="index.pl">Neu laden</a>'),
-                   $cgi->h2('Hier erstellst du eine neue Seite'),
-                                                                                      #noch formular einfügen für seite erstellen 
-                   $cgi->div('Gib den Dateinamen an'),
-                  # $cgi->br,
-                   $cgi->input({-name=>'seitname', value=>'Testseite.html'}),
-                   $cgi->br,
-                   $cgi->br,
-                   $cgi->div('Gib den Namen der neuen Seite ein'),
-                   $cgi->input({-name=>'sname', -css=>'tim'}),
-                   $cgi->br,
-                   $cgi->br,
-                   $cgi->div('Gib den Code fuer die Seite ein'),
-                   $cgi->textarea({-name=>'code', -columns =>50, -rows =>10}),
-                   $cgi->br,
-                   $cgi->submit(-name => 'new', -value =>'Seite erstellen'),   #andere Subs werden oben angesprochen  
+        $cgi->h1('Control Center'),
+        $cgi->hr,  
+        $cgi->div('<a href="start.html">&Uumlbersicht</a> <a href="index.pl">Neu laden</a>'),
+        $cgi->h2('Hier erstellst du eine neue Seite'),
+                                                                          #noch formular einfügen für seite erstellen 
+        $cgi->div('Gib den Dateinamen an'),
+        # $cgi->br,
+        $cgi->input({-name=>'seitname', value=>'Testseite.html'}),
+        $cgi->br,
+        $cgi->br,
+        $cgi->div('Gib den Namen der neuen Seite ein'),
+        $cgi->input({-name=>'sname', -css=>'tim'}),
+        $cgi->br,
+        $cgi->br,
+        $cgi->div('Gib den Code fuer die Seite ein'),
+        $cgi->textarea({-name=>'code', -columns =>50, -rows =>10}),
+        $cgi->br,
+        $cgi->submit(-name => 'new', -value =>'Seite erstellen'),   #andere Subs werden oben angesprochen  
+
+
+
+        $cgi->br,
+        $cgi->br,
+        $cgi->br,
+
+
+        $cgi->h2('Hier kannst du deine Webseite erweitern'),
+        $cgi->input({-name=>'bearbeiten', -value=>'Name der Datei'}),
+        $cgi->br,
+        $cgi->br,
+        $cgi->div('Gib deinen HTML Code ein: '),
+
+        $cgi->textarea({-name =>'text', -columns =>50, -rows =>5}),
+        $cgi->br,
+        $cgi->submit(-name => 'absenden', -value =>'speichern'),  #den eingegebenen Text in einer Variable übergeben mittels cgi 
+        $cgi->reset(-value =>'verwerfen'),
+        $cgi->br,
+
+
+        $cgi->br,
+        $cgi->br,
+        $cgi->br,
+
+        $cgi->h2('Seite l&oumlschen'),
+        $cgi->input({-name=>'delect', -value=>'Name der Datei'}),
+        $cgi->br,
+        $cgi->submit(-name => 'delect', -value =>'entfernen'),  #den eingegebenen Text in einer Variable übergeben mittels cgi 
+        $cgi->reset(-value =>'Abbrechen'),
+        $cgi->br,
+        $cgi->br,
+        $cgi->br,
                
-  
-                   
-                   $cgi->br,
-                   $cgi->br,
-                   $cgi->br,
-                   
-
-                   $cgi->h2('Hier kannst du deine Webseite erweitern'),
-                   $cgi->input({-name=>'bearbeiten', -value=>'Name der Datei'}),
-                   $cgi->br,
-                   $cgi->br,
-                   $cgi->div('Gib deinen HTML Code ein: '),
-                  
-                   $cgi->textarea({-name =>'text', -columns =>50, -rows =>5}),
-                   $cgi->br,
-                   $cgi->submit(-name => 'absenden', -value =>'speichern'),  #den eingegebenen Text in einer Variable übergeben mittels cgi 
-                   $cgi->reset(-value =>'verwerfen'),
-                   $cgi->br,
-
-               
-                   $cgi->br,
-                   $cgi->br,
-                   $cgi->br,
-
-                   $cgi->h2('Seite l&oumlschen'),
-                   $cgi->input({-name=>'delect', -value=>'Name der Datei'}),
-                   $cgi->br,
-                   $cgi->submit(-name => 'delect', -value =>'entfernen'),  #den eingegebenen Text in einer Variable übergeben mittels cgi 
-                   $cgi->reset(-value =>'Abbrechen'),
-                   $cgi->br,
-                   $cgi->br,
-                   $cgi->br,
-                   
-          $cgi->end_form();
+        $cgi->end_form();
 }
 
 
 
 
 sub anzeige{
- 
-      if ($cgi->param('text')) {
-         print $cgi->strong('Dein Code wird gespeichert und sieht so aus : <br>' .$cgi->param('text')),
-         $cgi->br;
-         $cgi->hr;
-         go($cgi); #jetz die funktion aufrufen um den code in einer datei zu speichern und die datai auch erstellen
-      }else{
-         print $cgi->strong('Da wurde nix eingegeben'),
-          
-    }
+    if ($cgi->param('text')) {
+       print $cgi->strong('Dein Code wird gespeichert und sieht so aus : <br>' .$cgi->param('text')),
+       $cgi->br;
+       $cgi->hr;
+       go($cgi); #jetz die funktion aufrufen um den code in einer datei zu speichern und die datai auch erstellen
+    }else{
+       print $cgi->strong('Da wurde nix eingegeben'),
+  }
 }
 
 
@@ -183,7 +174,6 @@ sub new{
 
 
 sub delect{
-
     my $result;
     $result = unlink ($cgi->param('delect'));
     print '<div id="box">Die Seite wurde gel&oumlscht</div>';
@@ -211,7 +201,7 @@ foreach $filename (<*.html>) {     #soll alle html datein auflisten , ist als me
 }
 
 
-my $filename;
+
 foreach $filename (<*.htm>) {     #soll alle html datein auflisten , ist als menü gedacht 
   print START '<div class="menu"><a href="';
   print START $filename;
@@ -220,7 +210,7 @@ foreach $filename (<*.htm>) {     #soll alle html datein auflisten , ist als men
   print START '</a></div><br>';
 }
 
-my $filename;
+
 foreach $filename (<*.php>) {     #soll alle html datein auflisten , ist als menü gedacht 
   print START '<div class="menu"><a href="';
   print START $filename;
